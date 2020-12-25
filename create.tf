@@ -1,8 +1,8 @@
 provider "yandex" {
-  token     = "${file("~/var/create.tfvars")}"
-  cloud_id  = "${file("~/var/create.tfvars")}"
-  folder_id = "${file("~/var/create.tfvars")}"
-  zone      = "ru-central1-a"
+  token     = var.private["token"]
+  cloud_id  = var.private["cloud_id"]
+  folder_id = var.private["folder_id"]
+  zone      = var.zone["1"]
 }
 
 resource "yandex_compute_instance" "vm-1" {
@@ -15,7 +15,8 @@ resource "yandex_compute_instance" "vm-1" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd87va5cc00gaq2f5qfb"
+      image_id = var.img["ub1804lts"]
+      size = 10
     }
   }
 
@@ -39,7 +40,7 @@ resource "yandex_compute_instance" "vm-2" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd87va5cc00gaq2f5qfb"
+      image_id = var.img["ub1804lts"]
       size = 10
     }
   }
@@ -80,3 +81,4 @@ output "external_ip_address_vm_1" {
 output "external_ip_address_vm_2" {
   value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
+
