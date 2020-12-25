@@ -1,4 +1,4 @@
-provider "yandex-cloud/yandex" {
+provider "yandex" {
   token     = var.private["token"]
   cloud_id  = var.private["cloud_id"]
   folder_id = var.private["folder_id"]
