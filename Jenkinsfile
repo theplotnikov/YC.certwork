@@ -18,8 +18,8 @@ pipeline {
 }
     stage ('terraform apply the plan') {
       steps {
-        input 'Apply Plan'
-        sh 'terraform apply'
+         sh 'terraform apply'
+         input 'yes'
       }
     }
   }
