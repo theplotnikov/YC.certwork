@@ -1,11 +1,11 @@
-variable "private" {
-  type = map
-  default = {
-    "token"  = "${file("~/cert/token")}"
-    "cloud_id" = "${file("~/cert/cloud_id")}"
-    "folder_id" = "${file("~/cert/folder_id"")}D"
-  }
-}
+#variable "private" {
+#  type = map
+#  default = {
+#    "token"  = "${file("~/cert/token")}"
+#    "cloud_id" = "${file("~/cert/cloud_id")}"
+#    "folder_id" = "${file("~/cert/folder_id"")}"
+#  }
+#}
 
 variable "img" {
   type = map
