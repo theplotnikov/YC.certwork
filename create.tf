@@ -4,7 +4,7 @@ provider "yandex" {
 #  folder_id = var.private["folder_id"]
   token     = "${file("~/cert/token")}"
   cloud_id  = "${file("~/cert/cloud_id")}"
-  folder_id = "${file("~/cert/folder_id"")}"
+  folder_id = "${file("~/cert/folder_id")}"
   zone      = var.zone["1"]
 }
 
