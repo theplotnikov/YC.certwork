@@ -1,9 +1,9 @@
 variable "private" {
   type = map
   default = {
-    "token"  = "ENTER YOUR TOKEN"
-    "cloud_id" = "ENTER YOUR CLOUDID"
-    "folder_id" = "ENTER YOUR FOLDERID"
+    "token"  = "${file("~/cert/token")}"
+    "cloud_id" = "${file("~/cert/cloud_id")}"
+    "folder_id" = "${file("~/cert/folder_id"")}D"
   }
 }
 
