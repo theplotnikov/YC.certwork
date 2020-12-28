@@ -67,12 +67,12 @@ resource "yandex_vpc_subnet" "subnet-1" {
 
 resource "local_file" "external_ip_address_vm_1" {
     content  = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
-    filename = "~/workspace/cert/inventory.ini"
+    filename = "inventory.ini"
 }
 
 resource "local_file" "external_ip_address_vm_2" {
     content  = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
-    filename = "~/workspace/cert/inventory.ini"
+    filename = "inventory.ini"
 }
 
 output "external_ip_address_vm_1" {
