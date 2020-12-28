@@ -66,10 +66,10 @@ resource "yandex_vpc_subnet" "subnet-1" {
 }
 
 resource "local_file" "AnsibleInventory" {
-  content = templatefile(
+  content = templatefile("inventory.tmpl",
     {
-    1 = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address,
-    2 = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
+    vm1-ip = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address,
+    vm2-ip = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
     }
     )
     filename = "inventory.ini"
