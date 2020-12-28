@@ -65,14 +65,14 @@ resource "yandex_vpc_subnet" "subnet-1" {
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
-resource "external_ip_address_vm_1" {
+resource "local_file" "external_ip_address_vm_1" {
     content  = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
-    filename = "inventory.ini"
+    filename = "${path.module}/inventory.ini"
 }
 
-resource "external_ip_address_vm_2" {
+resource "local_file" "external_ip_address_vm_2" {
     content  = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
-    filename = "inventory.ini"
+    filename = "${path.module}/inventory.ini"
 }
 
 output "external_ip_address_vm_1" {
