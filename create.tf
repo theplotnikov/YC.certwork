@@ -1,7 +1,7 @@
 provider "yandex" {
-  token     = "${file("~/cert/token")}"
-  cloud_id  = "${file("~/cert/cloud_id")}"
-  folder_id = "${file("~/cert/folder_id")}"
+  token     = "${file("~/workspace/cert/token")}"
+  cloud_id  = "${file("~/workspace/cert/cloud_id")}"
+  folder_id = "${file("~/workspace/cert/folder_id")}"
   zone      = var.zone["1"]
 }
 
@@ -26,7 +26,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/cert/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/workspace/cert/id_rsa.pub")}"
   }
 }
 
@@ -50,7 +50,7 @@ resource "yandex_compute_instance" "vm-2" {
     nat       = true
   }
   metadata = {
-    ssh-keys = "ubuntu:${file("~/cert/id_rsa.pub")}"
+    ssh-keys = "ubuntu:${file("~/workspace/cert/id_rsa.pub")}"
   }
 }
 
@@ -67,12 +67,12 @@ resource "yandex_vpc_subnet" "subnet-1" {
 
 resource "local_file" "external_ip_address_vm_1" {
     content  = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
-    filename = "${path.module}/inventory.ini"
+    filename = "~/workspace/cert/inventory.ini"
 }
 
 resource "local_file" "external_ip_address_vm_2" {
     content  = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
-    filename = "${path.module}/inventory.ini"
+    filename = "~/workspace/cert/inventory.ini"
 }
 
 output "external_ip_address_vm_1" {
