@@ -4,6 +4,9 @@
   become: yes
   tasks:
 
+    - name: install python2
+      raw: sudo apt-get -y install python
+
     - name: update apt cache
       apt:
         update_cache: yes
@@ -17,6 +20,8 @@
           - maven
           - git
           - default-jdk
+          - mc
+          - python
 
     - name: clone boxfuse git repository
       git:
