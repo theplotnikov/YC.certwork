@@ -1,7 +1,7 @@
 ---
 - name: prepare instance for build
   hosts: buildinstance
-  become: yes
+#  become: yes
   tasks:
 
     - name: update apt cache
