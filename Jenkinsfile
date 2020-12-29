@@ -29,7 +29,7 @@ pipeline {
         credentialsId: 'id_rsa',
         installation: 'ansible',
         inventory: '/var/lib/jenkins/workspace/cert/playbook.yml',
-        playbook: '/var/lib/jenkins/workspace/cert/inventory.ini')
+        playbook: '/var/lib/jenkins/workspace/cert/inventory.yml')
       }
     }
   }
