@@ -4,8 +4,8 @@
   become: yes
   tasks:
 
-    - name: preinstall python
-      raw: sudo apt-get -y install python
+    - name: preinstall python3
+      raw: sudo apt-get -y install python3
 
     - name: update apt cache
       apt:
