@@ -72,13 +72,8 @@ resource "local_file" "AnsibleInventory" {
     vm2-ip = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
     }
     )
-    filename = "inventory.ini"
+    filename = "inventory.yml"
 }
-
-#resource "local_file" "external_ip_address_vm_2" {
-#    content  = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
-#    filename = "inventory.ini"
-#}
 
 output "external_ip_address_vm_1" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address

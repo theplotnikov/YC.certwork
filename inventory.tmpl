@@ -1,5 +1,8 @@
-[buildinstance]
-buildinstance=${vm1-ip}
+---
+  buildinstance:
+    hosts:
+      ${vm1-ip}
 
-[deployinstance]
-deployinstance=${vm2-ip}
+  deployinstance:
+    hosts:
+      ${vm2-ip}
