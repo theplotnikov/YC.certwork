@@ -20,6 +20,7 @@ pipeline {
       steps {
         ansiblePlaybook (
         become: true,
+        disableHostKeyChecking: true,
         credentialsId: 'id_rsa',
         installation: 'ansible',
         inventory: '/var/lib/jenkins/workspace/cert/inventory.yml',
