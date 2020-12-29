@@ -27,8 +27,8 @@ pipeline {
         become: true,
         credentialsId: 'id_rsa',
         installation: 'ansible',
-        inventory: '/var/lib/jenkins/workspace/cert/playbook.yml',
-        playbook: '/var/lib/jenkins/workspace/cert/inventory.yml')
+        inventory: '/var/lib/jenkins/workspace/cert/inventory.yml',
+        playbook: '/var/lib/jenkins/workspace/cert/playbook.yml')
       }
     }
   }
