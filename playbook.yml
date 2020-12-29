@@ -1,7 +1,7 @@
 ---
 - name: prepare instance for build
   hosts: buildinstance
-#  become: yes
+  become: yes
   tasks:
 
     - name: update apt cache
@@ -25,7 +25,7 @@
         clone: no
 
     - name: build the project
-      shell: mvn -f boxfuse-sample-java-war-hello/pom.xml package
+      shell: mvn boxfuse-sample-java-war-hello/pom.xml package
 
     - name: fetch war to server
       fetch:
