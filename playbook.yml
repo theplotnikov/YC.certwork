@@ -2,6 +2,12 @@
 - name: prepare instance for build
   hosts: buildinstance
   gather_facts: false
+
+  pre_tasks:
+    - name: preinstall python
+      become: no
+      raw: sudo apt update && apt install python -y
+
   become: yes
   tasks:
 
