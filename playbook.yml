@@ -1,13 +1,14 @@
 ---
-- name: prepare instance for build
-  hosts: buildinstance
+- name: prepare instances
+  hosts: all
   gather_facts: false
-
   pre_tasks:
     - name: preinstall python
       become: yes
       raw: apt update && apt install python -y
 
+- name: prepare instance for build
+  hosts: buildinstance
   become: yes
   tasks:
 
