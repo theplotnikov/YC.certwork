@@ -30,15 +30,15 @@
     - name: clone boxfuse git repository
       git:
         repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-        dest: ./
+        dest: /home/ubuntu/
         clone: no
 
     - name: build the project
-      shell: mvn -f ./boxfuse-sample-java-war-hello/pom.xml package
+      shell: mvn -f /home/ubuntu/boxfuse-sample-java-war-hello/pom.xml package
 
     - name: fetch war to server
       fetch:
-        src: ./boxfuse-sample-java-war-hello/target/hello-1.0.war
+        src: /home/ubuntu/boxfuse-sample-java-war-hello/target/hello-1.0.war
         dest: /tmp/
         flat: yes
 
