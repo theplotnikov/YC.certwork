@@ -16,6 +16,12 @@ pipeline {
       }
     }
 
+    stage ('waiting for instances') {
+      steps {
+        sleep (
+        time: 20,
+        unit: "SECONDS")
+
     stage ('execute ansible playbook') {
       steps {
         ansiblePlaybook (
