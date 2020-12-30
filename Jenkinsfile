@@ -9,7 +9,7 @@ pipeline {
         def inputcloud_id
         def inputfolder_id
         def inputtoken_id
-        def inputkey_id.pub
+        def inputkey_id
         def userInput = input (
         id: 'userInput',
         message: 'enter your\'s cloud private data',
@@ -17,16 +17,16 @@ pipeline {
         string (defaultValue: 'None', description: 'cloud_id value', name: 'cloud_id'),
         string (defaultValue: 'None', description: 'folder_id value', name: 'folder_id'),
         string (defaultValue: 'None', description: 'token_id value', name: 'token_id'),
-        string (defaultValue: 'None', description: 'key_id.pub value', name: 'key_id.pub'),
+        string (defaultValue: 'None', description: 'key_id value', name: 'key_id'),
         ])
         inputcloud_id = userInput.cloud_id?:''
         inputfolder_id = userInput.folder_id?:''
         inputtoken_id = userInput.token_id?:''
-        inputkey_id.pub = userInput.key_id.pub?:''
+        inputkey_id = userInput.key_id?:''
         writeFile file: "id_cloud", text: "${inputcloud_id}"
         writeFile file: "id_folder", text: "${inputfolder_id}"
         writeFile file: "id_token", text: "${inputtoken_id}"
-        writeFile file: "id_key.pub", text: "${inputkey_id.pub}"
+        writeFile file: "id_key.pub", text: "${inputkey_id}"
     }
   }
 }
