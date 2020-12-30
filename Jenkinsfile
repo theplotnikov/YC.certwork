@@ -3,6 +3,30 @@ pipeline {
 
   stages {
 
+    stage ('input the yandex cloud private data') {
+      steps {
+        script {
+        def inputcloud_id
+        def inputfolder_id
+        def inputtoken_id
+        def userInput = input (
+        id: 'userInput',
+        message: 'enter your\'s cloud private data',
+        parameters: [
+        string (defaultValue: 'None', description: 'cloud_id value', name: 'cloud_id'),
+        string (defaultValue: 'None', description: 'folder_id value', name: 'folder_id'),
+        string (defaultValue: 'None', description: 'token_id value', name: 'token_id'),
+        ])
+        inputcloud_id = userInput.cloud_id?:''
+        inputfolder_id = userInput.folder_id?:''
+        inputtoken_id = userInput.token_id?:''
+        writeFile file: "id_cloud", text: "cloud_id=${inputcloud_id}"
+        writeFile file: "id_folder", text: "folder_id=${inputfolder_id}"
+        writeFile file: "id_token", text: "token_id=${inputtoken_id}"
+    }
+  }
+}
+
     stage ('terraform makes the plan to create instances') {
       steps {
         sh 'terraform init'
@@ -29,7 +53,7 @@ pipeline {
         ansiblePlaybook (
         become: true,
         disableHostKeyChecking: true,
-        credentialsId: 'key1',
+        credentialsId: 'id_key',
         installation: 'ansible',
         inventory: '/var/lib/jenkins/workspace/cert/inventory.yml',
         playbook: '/var/lib/jenkins/workspace/cert/playbook.yml')
