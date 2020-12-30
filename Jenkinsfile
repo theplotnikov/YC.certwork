@@ -18,8 +18,8 @@ pipeline {
           ])
           inputcloud_id = userInput.cloud_id?:''
           inputfolder_id = userInput.folder_id?:''
-          writeFile file: "id_cloud", text: "${inputcloud_id}"
-          writeFile file: "var.folder", text: "${inputfolder_id}"
+          writeFile file: "var.cloud_id", text: "${inputcloud_id}"
+          writeFile file: "var.folder_id", text: "${inputfolder_id}"
       }
     }
   }
@@ -40,13 +40,12 @@ pipeline {
           ])
           inputtoken = userInput.token?:''
           inputpubkey = userInput.pubkey?:''
-          writeFile file: "var.token_id", text: "${inputtoken}"
+          writeFile file: "var.token", text: "${inputtoken}"
           writeFile file: "var.pubkey", text: "${inputpubkey}"
       }
     }
   }
 }
-
 
     stage ('terraform makes the plan to create instances') {
       steps {
