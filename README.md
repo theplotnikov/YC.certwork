@@ -4,4 +4,6 @@ this repository has the Jenkinsfile that:
    first instance for building war project.
    second instance for deploying project with tomcat8.
    
-befor start this pipeline you must 
+before start this pipeline you must:
+1. add credential. kind "ssh with private key", ID "privatekey", username "ubuntu", and content of yours privatekey.
+2. prepare private data: cloud id, folder id, token, pubkey.

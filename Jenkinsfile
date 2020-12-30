@@ -73,7 +73,7 @@ pipeline {
         ansiblePlaybook (
         become: true,
         disableHostKeyChecking: true,
-        credentialsId: 'id_key',
+        credentialsId: 'privatekey',
         installation: 'ansible',
         inventory: '/var/lib/jenkins/workspace/cert/inventory.yml',
         playbook: '/var/lib/jenkins/workspace/cert/playbook.yml')
