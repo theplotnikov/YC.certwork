@@ -68,5 +68,5 @@
 
     - name: restart tomcat8
       service:
-        name: tomcat9
+        name: tomcat8
         state: restarted
