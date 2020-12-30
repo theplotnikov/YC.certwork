@@ -30,7 +30,7 @@
     - name: clone boxfuse git repository
       git:
         repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-        dest: /home/ubuntu/
+        dest: /home/ubuntu/boxfuse/
         clone: yes
 
     - name: build the project
