@@ -20,9 +20,9 @@ pipeline {
         inputcloud_id = userInput.cloud_id?:''
         inputfolder_id = userInput.folder_id?:''
         inputtoken_id = userInput.token_id?:''
-        writeFile file: "id_cloud", text: "cloud_id=${inputcloud_id}"
-        writeFile file: "id_folder", text: "folder_id=${inputfolder_id}"
-        writeFile file: "id_token", text: "token_id=${inputtoken_id}"
+        writeFile file: "id_cloud", text: "${inputcloud_id}"
+        writeFile file: "id_folder", text: "${inputfolder_id}"
+        writeFile file: "id_token", text: "${inputtoken_id}"
     }
   }
 }
