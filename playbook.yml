@@ -34,7 +34,7 @@
         clone: no
 
     - name: build the project
-      shell: mvn -f boxfuse-sample-java-war-hello/pom.xml package
+      shell: mvn -f ./boxfuse-sample-java-war-hello/pom.xml package
 
     - name: fetch war to server
       fetch:
