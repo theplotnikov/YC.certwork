@@ -27,8 +27,6 @@ pipeline {
   }
 }
 
-
-
     stage ('terraform makes the plan to create instances') {
       steps {
         sh 'terraform init'
@@ -36,7 +34,7 @@ pipeline {
   }
 }
 
-    stage ('terraform apply the plan and create instances') {
+    stage ('terraform apply the plan that create instances') {
       steps {
          sh 'terraform apply -auto-approve'
   }
