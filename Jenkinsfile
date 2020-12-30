@@ -3,14 +3,14 @@ pipeline {
 
   stages {
 
-    stage ('terraform makes plan') {
+    stage ('terraform makes plan to create instances') {
       steps {
         sh 'terraform init'
         sh 'terraform plan -out create.tfplan'
   }
 }
 
-    stage ('terraform apply the plan') {
+    stage ('terraform apply the plan and create instances') {
       steps {
          sh 'terraform apply -auto-approve'
       }
@@ -22,7 +22,7 @@ pipeline {
         time: 20,
         unit: "SECONDS")
 
-    stage ('execute ansible playbook') {
+    stage ('execute ansible playbook, that configure instances') {
       steps {
         ansiblePlaybook (
         become: true,
