@@ -9,29 +9,44 @@ pipeline {
           script {
           def inputcloud_id
           def inputfolder_id
-          def inputtoken
-          def inputpubkey
           def userInput = input (
           id: 'userInput',
           message: 'enter your\'s cloud private data',
           parameters: [
           string (defaultValue: 'YourCloudID', description: 'cloud_id value', name: 'cloud_id'),
           string (defaultValue: 'YourFolderID', description: 'folder_id value', name: 'folder_id'),
-          string (defaultValue: 'YourToken', description: 'token value', name: 'token'),
-          string (defaultValue: 'YourPubKey', description: 'pubkey value', name: 'pubkey'),
           ])
           inputcloud_id = userInput.cloud_id?:''
           inputfolder_id = userInput.folder_id?:''
-          inputtoken = userInput.token?:''
-          inputpubkey = userInput.pubkey?:''
           writeFile file: "id_cloud", text: "${inputcloud_id}"
           writeFile file: "var.folder", text: "${inputfolder_id}"
+      }
+    }
+  }
+}
+
+    stage ('input more the yandex cloud private data') {
+      steps {
+        timeout (time: 60, unit: 'SECONDS') {
+          script {
+          def inputtoken
+          def inputpubkey
+          def userInput = input (
+          id: 'userInput',
+          message: 'enter your\'s cloud private data',
+          parameters: [
+          string (defaultValue: 'YourToken', description: 'token value', name: 'token'),
+          string (defaultValue: 'YourPubKey', description: 'pubkey value', name: 'pubkey'),
+          ])
+          inputtoken = userInput.token?:''
+          inputpubkey = userInput.pubkey?:''
           writeFile file: "var.token_id", text: "${inputtoken}"
           writeFile file: "var.pubkey", text: "${inputpubkey}"
       }
     }
   }
 }
+
 
     stage ('terraform makes the plan to create instances') {
       steps {

@@ -19,9 +19,9 @@
           inputfolder_id = userInput.folder_id?:''
           inputtoken = userInput.token?:''
           inputpubkey = userInput.pubkey?:''
-          writeFile file: "var.cloud_id", text: "${inputcloud_id}"
-          writeFile file: "var.folder_id", text: "${inputfolder_id}"
-          writeFile file: "var.token", text: "${inputtoken}"
+          writeFile file: "id_cloud", text: "${inputcloud_id}"
+          writeFile file: "var.folder", text: "${inputfolder_id}"
+          writeFile file: "var.token_id", text: "${inputtoken}"
           writeFile file: "var.pubkey", text: "${inputpubkey}"
       }
     }
