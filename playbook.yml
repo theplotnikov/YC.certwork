@@ -31,7 +31,7 @@
       git:
         repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
         dest: /home/ubuntu/
-        clone: no
+        clone: yes
 
     - name: build the project
       shell: mvn -f /home/ubuntu/boxfuse-sample-java-war-hello/pom.xml package
