@@ -6,7 +6,6 @@ pipeline {
     stage ('input the yandex cloud private data') {
       steps {
         script {
-        def inputcloud_id
         def userInput = input (
         id: 'userInput',
         message: 'enter your\'s cloud private data',
