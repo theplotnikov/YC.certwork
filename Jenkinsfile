@@ -7,14 +7,14 @@ pipeline {
       steps {
         script {
         def inputcloud_id
-        def userInput = input1 (
-        id: 'userInput',
+        def userInput1 = input (
+        id: 'userInput1',
         message: 'enter your\'s yandex cloud id',
         parameters: [
         string (defaultValue: 'YourCloudID', description: 'cloud_id value', name: 'cloud_id'),
         ])
-        input1cloud_id = userInput.cloud_id?:''
-        writeFile file: "id_cloud", text: "${input1cloud_id}"
+        inputcloud_id = userInput1.cloud_id?:''
+        writeFile file: "id_cloud", text: "${inputcloud_id}"
     }
   }
 }
