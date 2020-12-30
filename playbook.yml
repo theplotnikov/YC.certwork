@@ -5,8 +5,8 @@
 
   pre_tasks:
     - name: preinstall python
-      become: no
-      raw: sudo apt update && apt install python -y
+      become: yes
+      raw: apt update && apt install python -y
 
   become: yes
   tasks:
