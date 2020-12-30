@@ -34,11 +34,11 @@
         clone: yes
 
     - name: build the project
-      shell: mvn -f /home/ubuntu/boxfuse-sample-java-war-hello/pom.xml package
+      shell: mvn -f /home/ubuntu/boxfuse/pom.xml package
 
     - name: fetch war to server
       fetch:
-        src: /home/ubuntu/boxfuse-sample-java-war-hello/target/hello-1.0.war
+        src: /home/ubuntu/boxfuse/target/hello-1.0.war
         dest: /tmp/
         flat: yes
 
