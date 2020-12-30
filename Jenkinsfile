@@ -3,7 +3,7 @@ pipeline {
 
   stages {
 
-    stage ('terraform makes plan to create instances') {
+    stage ('terraform makes the plan to create instances') {
       steps {
         sh 'terraform init'
         sh 'terraform plan -out create.tfplan'
