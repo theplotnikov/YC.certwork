@@ -13,14 +13,16 @@ pipeline {
     stage ('terraform apply the plan and create instances') {
       steps {
          sh 'terraform apply -auto-approve'
-      }
-    }
+  }
+}
 
     stage ('waiting for instances') {
       steps {
         sleep (
         time: 20,
         unit: "SECONDS")
+  }
+}
 
     stage ('execute ansible playbook, that configure instances') {
       steps {
