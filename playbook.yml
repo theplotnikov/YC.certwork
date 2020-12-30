@@ -1,7 +1,7 @@
 ---
 - name: prepare instance for build
   hosts: buildinstance
-
+  gather_facts: false
   pre_tasks:
     - name: preinstall python3
       become: no
