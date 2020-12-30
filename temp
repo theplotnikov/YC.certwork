@@ -1,6 +1,6 @@
     stage ('input the yandex cloud private data') {
       steps {
-        timeout(time: 30, unit: 'SECONDS') {
+        timeout (time: 60, unit: 'SECONDS') {
           script {
           def inputcloud_id
           def inputfolder_id
@@ -23,6 +23,33 @@
     }
   }
 }
+
+
+
+script {
+  def inputConfig
+  def userInput = input(id: 'userInput', message: 'Enter path of test reports:?', parameters: [string (defaultValue: 'None', description: 'Path of config file', name: 'Config'),])
+  inputConfig = userInput.Config?:''
+  inputTest = userInput.Test?:''
+  writeFile file: "inputData.txt", text: "Config=${inputConfig}"
+  archiveArtifacts 'inputData.txt'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     stage ('input the yandex folder id') {
