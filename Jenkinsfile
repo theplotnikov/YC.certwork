@@ -19,7 +19,7 @@ pipeline {
     stage ('waiting for instances') {
       steps {
         sleep (
-        time: 30,
+        time: 40,
         unit: "SECONDS")
   }
 }
