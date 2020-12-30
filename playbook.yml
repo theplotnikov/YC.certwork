@@ -56,11 +56,6 @@
           - tomcat8
           - mc
 
-    - name: ensure tomcat is started
-      service:
-        name: tomcat8
-        state: started
-
     - name: copy war to prod
       copy:
         src: /tmp/hello-1.0.war
