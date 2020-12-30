@@ -1,6 +1,6 @@
 provider "yandex" {
   token     = "${file("~/workspace/cert/id_token")}"
-  id_cloud  = "${file("~/workspace/cert/id_cloud")}"
+  cloud_id  = "${file("~/workspace/cert/id_cloud")}"
   folder_id = "${file("~/workspace/cert/id_folder")}"
   zone      = var.zone["1"]
 }

@@ -13,9 +13,9 @@ pipeline {
         id: 'userInput',
         message: 'enter your\'s cloud private data',
         parameters: [
-        string (defaultValue: 'None', description: 'cloud_id value', name: 'cloud_id'),
-        string (defaultValue: 'None', description: 'folder_id value', name: 'folder_id'),
-        string (defaultValue: 'None', description: 'token_id value', name: 'token_id'),
+        string (defaultValue: 'YourCloudID', description: 'cloud_id value', name: 'cloud_id'),
+        string (defaultValue: 'YourFolderID', description: 'folder_id value', name: 'folder_id'),
+        string (defaultValue: 'YourToken', description: 'token_id value', name: 'token_id'),
         ])
         inputcloud_id = userInput.cloud_id?:''
         inputfolder_id = userInput.folder_id?:''
