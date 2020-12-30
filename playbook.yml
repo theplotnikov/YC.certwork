@@ -16,7 +16,7 @@
       apt:
         update_cache: yes
 
-    - name: ensure that maven, git, jdk is present
+    - name: ensure that maven, git, jdk, mc is present
       apt:
         name: "{{ packages }}"
         state: present
@@ -26,7 +26,6 @@
           - git
           - default-jdk
           - mc
-          - python
 
     - name: clone boxfuse git repository
       git:
@@ -35,7 +34,7 @@
         clone: no
 
     - name: build the project
-      shell: mvn boxfuse-sample-java-war-hello/pom.xml package
+      shell: mvn -f boxfuse-sample-java-war-hello/pom.xml package
 
     - name: fetch war to server
       fetch:
@@ -48,10 +47,14 @@
   become: yes
 
   tasks:
-    - name: ensure tomcat is present
+    - name: ensure tomcat8 and mc is present
       apt:
-        name: tomcat8
+        name: "{{ packages }}"
         state: present
+      vars:
+        packages:
+          - tomcat8
+          - mc
 
     - name: ensure tomcat is started
       service:
