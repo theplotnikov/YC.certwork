@@ -1,7 +1,7 @@
 provider "yandex" {
-  token     = "${file("~/workspace/cert/id_token")}"
-  cloud_id  = "${file("~/workspace/cert/id_cloud")}"
-  folder_id = "${file("~/workspace/cert/id_folder")}"
+  token     = "${file("~/workspace/cert/var.token")}"
+  cloud_id  = "${file("~/workspace/cert/var.cloud_id")}"
+  folder_id = "${file("~/workspace/cert/var.folder_id")}"
   zone      = var.zone["1"]
 }
 
@@ -26,7 +26,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/workspace/cert/id_key.pub")}"
+    ssh-keys = "ubuntu:${file("~/workspace/cert/var.pubkey")}"
   }
 }
 
@@ -50,7 +50,7 @@ resource "yandex_compute_instance" "vm-2" {
     nat       = true
   }
   metadata = {
-    ssh-keys = "ubuntu:${file("~/workspace/cert/id_key.pub")}"
+    ssh-keys = "ubuntu:${file("~/workspace/cert/var.pubkey")}"
   }
 }
 
