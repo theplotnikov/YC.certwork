@@ -5,7 +5,7 @@
   tasks:
 
     - name: preinstall python3
-      raw: sudo apt-get -y install python python3
+      raw: sudo apt update && apt install python python3 -y
 
     - name: update apt cache
       apt:

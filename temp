@@ -1,7 +1,19 @@
-    stage ('approve terraforms applying') {
-      steps {
-        script {
-          def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
-    }
-  }
-}
+- name: run war in deployinstance
+  hosts: deployinstance
+  become: yes
+
+  tasks:
+    - name: ensure tomcat is present
+      apt:
+        name: tomcat8
+        state: present
+
+    - name: ensure tomcat is started
+      service:
+        name: tomcat8
+        state: started
+
+    - name: copy war to prod
+      copy:
+        src: /tmp/hello-1.0.war
+         dest: /var/lib/tomcat8/webapps/
