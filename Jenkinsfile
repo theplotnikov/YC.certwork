@@ -7,46 +7,14 @@ pipeline {
       steps {
         script {
         def inputcloud_id
-        def userInput = input (
+        def userInput = input1 (
         id: 'userInput',
         message: 'enter your\'s yandex cloud id',
         parameters: [
         string (defaultValue: 'YourCloudID', description: 'cloud_id value', name: 'cloud_id'),
         ])
-        inputcloud_id = userInput.cloud_id?:''
-        writeFile file: "id_cloud", text: "${inputcloud_id}"
-    }
-  }
-}
-
-    stage ('input the yandex folder id') {
-      steps {
-        script {
-        def inputfolder_id
-        def userInput = input (
-        id: 'userInput',
-        message: 'enter your\'s yandex folder id',
-        parameters: [
-        string (defaultValue: 'YourFolderID', description: 'folder_id value', name: 'folder_id'),
-        ])
-        inputfolder_id = userInput.folder_id?:''
-        writeFile file: "id_folder", text: "${inputfolder_id}"
-    }
-  }
-}
-
-    stage ('input the yandex token') {
-      steps {
-        script {
-        def inputtoken_id
-        def userInput = input (
-        id: 'userInput',
-        message: 'enter your\'s yandex token',
-        parameters: [
-        string (defaultValue: 'YourToken', description: 'token_id value', name: 'token_id'),
-        ])
-        inputtoken_id = userInput.token_id?:''
-        writeFile file: "id_token", text: "${inputtoken_id}"
+        input1cloud_id = userInput.cloud_id?:''
+        writeFile file: "id_cloud", text: "${input1cloud_id}"
     }
   }
 }
