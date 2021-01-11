@@ -6,4 +6,4 @@ this repository has the Jenkinsfile that:
    
 before start this pipeline you must:
 1. add credential in Jenkins. kind "ssh with private key", ID "privatekey", username "ubuntu", and content of yours privatekey.
-2. prepare private data: cloud id, folder id, token, pubkey.
+2. prepare YC private data: cloud id, folder id, token, pubkey.
