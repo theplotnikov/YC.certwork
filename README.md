@@ -5,5 +5,5 @@ this repository has the Jenkinsfile that:
    second instance for deploying project with tomcat8.
    
 before start this pipeline you must:
-1. add credential. kind "ssh with private key", ID "privatekey", username "ubuntu", and content of yours privatekey.
+1. add credential in Jenkins. kind "ssh with private key", ID "privatekey", username "ubuntu", and content of yours privatekey.
 2. prepare private data: cloud id, folder id, token, pubkey.
