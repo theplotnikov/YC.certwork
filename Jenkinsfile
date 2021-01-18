@@ -75,8 +75,8 @@ pipeline {
         disableHostKeyChecking: true,
         credentialsId: 'privatekey',
         installation: 'ansible',
-        inventory: '/var/lib/jenkins/workspace/cert/inventory.yml',
-        playbook: '/var/lib/jenkins/workspace/cert/playbook.yml')
+        inventory: '/var/lib/jenkins/workspace/YC.certwork/inventory.yml',
+        playbook: '/var/lib/jenkins/workspace/YC.certwork/playbook.yml')
       }
     }
   }
